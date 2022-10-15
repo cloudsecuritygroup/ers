@@ -7,7 +7,7 @@ This is the associated artifact for the paper "Range Search on Encrypted Multi-A
 ## Dependencies 
 
 Our schemes assume prior installation of Python 3.9.0 or above which can be installed from [here](https://www.python.org/downloads/source/).
-The `requirements.txt` file in the main directory contains a list of all the necessary dependencies for running our schemes and reproducing our experiments; these dependencies can be installed using the `pip3` command.
+The `requirements.txt` file in the main directory contains a list of all the necessary dependencies for running our schemes and reproducing our experiments; these dependencies can be installed using the `pip3 install -r requirements.txt` command.
 
 ## Detailed Usage
 
@@ -19,14 +19,14 @@ We implement the following schemes from our paper:
 * **Range-BRC**: A scheme based on the classic range tree data structure and which uses the best range cover (BRC) to minimize the number of search tokens issued while still ensuring that no false positives are returned.
 * **Quad-BRC**: A scheme based on the classic quadtree data structure together with the best range cover (BRC). This scheme offers smaller storage requirements compared to Range-BRC in exchange for a larger query bandwidth.
 * **Tdag-SRC**: A scheme that extends the Tdag-SRC scheme of Demertzis et al. (SIGMOD 2016) to higher dimensions. This acheives the smallest bandwidth, i.e. a single search token, at the expense of false positives, while achieveing the same asymptotic complexity of the range tree.
-* **Qdag-SRC**: A scheme that leverages a novel data structure called a quadtree-liked DAG (QDAG). The QDAG is based on the quadtree but injects additional nodes in such a way that it minimizes the number of false positives when using the single range cover (SRC). It achieves the same asymptotic storage complexity as the Quad-BRC. 
+* **Qdag-SRC**: A scheme that leverages a novel data structure called a quadtree-like DAG (QDAG). The QDAG is based on the quadtree but injects additional nodes in such a way that it minimizes the number of false positives when using the single range cover (SRC). It achieves the same asymptotic storage complexity as the Quad-BRC. 
 
 Each of our schemes can be tested on the following four datasets:
 
-* **Gowalla**: A 4D dataset consisting of $6,442,892$ latitude-longitude points of check-ins 
- from users of the  Gowalla social networking website  between  2009 and 2010.
 * **Spitz**:  A 2D dataset of $28,837$ latitude-longitude points of phone location data of politician Malte Spitz from Aug 2009 to Feb 2010.
 * **NH**: A 3D dataset comprised of $4,096$ elevation points on domain $[2^6] \times [2^6] \times [2^6]$ sampled from the United States Geological Survey's Elevation Data from the White Mountains of New Hampshire. We change the domain size by keeping exactly one aggregated elevation value per latitude and longitude value. 
+* **Gowalla**: A 4D dataset consisting of $6,442,892$ latitude-longitude points of check-ins 
+ from users of the  Gowalla social networking website  between  2009 and 2010.
 * **Cali**: A 2D dataset of $21,047$ latitude-longitude points of road network intersections in California.
 
 You can execute our schemes on these datasets by executing the following command from the root directory of the repository:
